@@ -13,21 +13,51 @@
     font-size: 20px;
     font-family: sans-serif;
 }
+#sign_out{
+    float: right;
+    margin: 0 10px 10px 100px;
+    cursor: pointer;
+}
 .message_container {
    padding : 10px 50px 20px 20px;
 }
 #msg{
     padding: 10px 20px; 
+    width: 85%;
+    margin-left: 18px;
+    border-radius: 35px;
+    resize: none;
+    margin-right: 0px;
 }
-button{
-         float: right;
+#msg:focus, button#send_button:focus, button#sign_out:focus{
+    outline-color: transparent;
+}
+button#sign_out{
+    float: right;
          padding: 10px 15px;
          position: relative;
          border: none;
          border-radius: 10px;
-         background-color: #607d8b00;
          cursor: pointer;
-    }
+         margin-right: 1.5%;
+         background-color: #f33c2e;
+         color: white;
+   
+
+}
+button#send_button{
+         float: right;
+         padding: 10px 15px;
+         position: relative;
+         border: none;
+         border-radius: 100%;
+       
+         cursor: pointer;
+         margin-right: 4.5%;
+         background-color: #27ab2c;
+         color: white;
+}
+
 
 @media only screen and (max-width: 460px){
     .message_container .chat_log{
@@ -43,7 +73,8 @@ button{
     }
     #msg{
         width:65%;
-        border-radius:30px;   
+        border-radius:30px;
+        margin-left: 0px;   
     }
     #msg:focus{
         outline-color: transparent;
@@ -52,12 +83,11 @@ button{
        background-color: transparent;
    }
    
-   button{
+   button#send_button{
          float: right;
-        
-         background-color: #607d8b00;
-         font-size: 50px;
+         margin-right: 0px;
          
     }
+   
 
 }

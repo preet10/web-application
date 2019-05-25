@@ -6,7 +6,6 @@ function signup(){
     signin_container.style.display = 'none';
     signup_container.style.display = 'block';
     
-
 }
 
 function return_signin(){
@@ -26,28 +25,6 @@ function cancel_signup(){
     signin_container.style.display = 'block';
 }
 
-function sendMsg()
-{
-    var msg = document.getElementById('msg').value;
-    if(msg == 0){
-        document.getElementById('msg').innerHTML = '';
-        return;
-    }else{
-        var req = new XMLHttpRequest;
-        req.onreadystatechange = function() {
-            if(this.readyState == 4 && this.status == 200){
-                var msgTag = document.createElement("p");
-                var node = document.createTextNode(this.responseText);
-                msgTag.appendChild(node);
-                var element = document.getElementById('chat_log');
-                element.appendChild(msgTag);
-            }
-        }
-        req.open("GET", "message.php?m="+msg, true);
-        req.send();
-    }
-}
-
 // Ajax funtion to mkae the web application real time
  
 function chat_ajax(){  
@@ -62,7 +39,7 @@ function chat_ajax(){
     req.send(); 
     }
     
-var interval = setInterval(function() { chat_ajax() }, 800);
+var interval = setInterval(function() { chat_ajax() }, 1000);
 //setInterval(function() { chat_ajax() }, 1000);
 
 function clearChat(){
@@ -71,6 +48,25 @@ function clearChat(){
     document.getElementById('message_container').innerHTML =  ' ';
         
     }
+
+function sign_out(){
+    // deleting the cookie by expiring its validity.
+    document.cookie =  "user_name=; expires= Thu, 03 march 2001 00:00:00 UTC; path=/; ";
+    
+    document.location.reload(true); 
+    
+}
+// send message function
+function sendMsgFunc(){
+    var name = document.getElementById('name');
+    var message = document.getElementById('message');
+    var time = document.getElementById('time');
+    name.style = "float: right";
+    message.style = "float: right";
+    time.style = "float: right";
+
+
+}
 
 
 

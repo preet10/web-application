@@ -1,9 +1,12 @@
 <?php
 session_start();
-
-if(!isset($_SESSION['permission'])){
-    header('location: ../index.html');
+if(!isset($_COOKIE['user_name'])){
+    $_SESSION['permission'] = NULL;
 }
+if(!isset($_SESSION['permission'])){
+    header('location: ../index.php');
+}
+
 //session_destroy();
 ?>
 
@@ -16,11 +19,11 @@ if(!isset($_SESSION['permission'])){
     <title>Dashboard</title>
     <link rel="stylesheet" href=" ../css/dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src='..js/index.js'></script>
+    <script src='../js/index.js'></script>
 </head>
 
 <body>
-
+    <button class='fa fa-sign-out' id='sign_out' onclick= 'sign_out()'  id='sign_out' style="font-size:20px">Sign-out</button>
     <div class='message_container' id='message_container'>
         <div class='chat_log' id='chat_log'>
         
@@ -29,18 +32,25 @@ if(!isset($_SESSION['permission'])){
 
     <form action='dashboard.php' method='post'>
             <!--<button onclick="clearInterval(interval)" >Clear Chat</button>-->      
-            <button type='submit' name='submit' class='fa fa-send'style="font-size:24px"></button>      
-            <textarea id='msg' name='msg'  placeholder='Enter Your Message'></textarea>
+            <button type='submit' id='send_button' name='send_button'  class='fa fa-send'style="font-size:24px"></button>      
+            <textarea id='msg' name='msg'  placeholder='Enter Your Message' required title='Enter a message!'></textarea>
     </form>
     <?php
-            
-            if(isset($_POST['msg'])){
+            // to check if user has type the message or not .
+           
+            if(isset($_POST['send_button']) && isset($_POST['msg'])){
+                
                 $name = $_COOKIE['user_name'];
+                //$name = $_SESSION['username'];
                 $msg = $_POST['msg'];
                 include 'messenger_connection.php';
                 $sql = "INSERT INTO chat(`name`,`message`) VALUES('$name','$msg')";
                 $run = $conn->query($sql);
+                
+                
             }
+        
+            
         ?>
         
 </body>

@@ -6,10 +6,13 @@
 ?>
    <br>
    <span id='name' style="color:red;"><?php echo $row['name'].":"?></span>
-   <span ><?php echo $row['message']?></span><br>
+   <span id='message'><?php echo $row['message']?></span><br>
    
    <span  id='time'' style="color: green;"><?php echo $row['time']?></span>
    <hr>
 <?php endwhile; ?>
+
+   
+
 
    

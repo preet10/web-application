@@ -1,4 +1,19 @@
-
+<?php
+session_start();
+if(isset($_COOKIE['user_name'])){
+    
+    include "php/messenger_connection.php";
+    $cookie_value = $_COOKIE['user_name'];
+    $sql = "SELECT `name` FROM `accounts` WHERE `name` = '$cookie_value'";
+    $data = $conn->query($sql);
+    $res = $data->fetch_assoc();
+    
+    if($cookie_value == $res['name']){
+        $_SESSION['permission'] = "yes";
+        header("location: php/dashboard.php");
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
