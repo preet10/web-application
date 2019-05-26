@@ -1,6 +1,17 @@
 
 /*  Style for dashboard.php*/
 
+/*Style for top navigation*/
+.top_nav{
+    background-color: rgba(171, 160, 160, 0.47);
+    overflow: hidden;
+    border-radius: 20px;
+}
+.top_nav h1{
+    text-align: center;
+    margin-left: 20%;
+}
+
 .message_container .chat_log{
     background-color: #c3baba40;
     border: 1px solid black;
@@ -33,7 +44,8 @@
     outline-color: transparent;
 }
 button#sign_out{
-    float: right;
+         float: right;
+         margin-top: 8px;
          padding: 10px 15px;
          position: relative;
          border: none;
@@ -42,8 +54,10 @@ button#sign_out{
          margin-right: 1.5%;
          background-color: #f33c2e;
          color: white;
-   
 
+}
+button#sign_out:hover, button#send_button:hover{
+     opacity: 0.8;
 }
 button#send_button{
          float: right;
@@ -58,8 +72,22 @@ button#send_button{
          color: white;
 }
 
-
+/* for mobiles */
 @media only screen and (max-width: 460px){
+
+    .top_nav{
+        padding: 0px;
+    
+        margin-bottom: 5px;
+        border-radius: 0px;
+
+    }
+
+    .top_nav h1{
+        text-align: center;
+        float:left;
+        margin-left: 10px;
+    }
     .message_container .chat_log{
         font-size: 22px;
         }

@@ -23,7 +23,11 @@ if(!isset($_SESSION['permission'])){
 </head>
 
 <body>
-    <button class='fa fa-sign-out' id='sign_out' onclick= 'sign_out()'  id='sign_out' style="font-size:20px">Sign-out</button>
+    <div class='top_nav'>
+        <button class='fa fa-sign-out'id='sign_out'onclick='sign_out()'id='sign_out'style="font-size:20px">Sign-out</button>
+        <h1>Global</h1>
+    </div>
+    
     <div class='message_container' id='message_container'>
         <div class='chat_log' id='chat_log'>
         
