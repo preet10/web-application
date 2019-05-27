@@ -7,7 +7,6 @@ if(!isset($_SESSION['permission'])){
     header('location: ../index.php');
 }
 
-//session_destroy();
 ?>
 
 <!DOCTYPE html>
@@ -47,15 +46,16 @@ if(!isset($_SESSION['permission'])){
                 $name = $_COOKIE['user_name'];
                 //$name = $_SESSION['username'];
                 $msg = $_POST['msg'];
-                include 'messenger_connection.php';
-                $sql = "INSERT INTO chat(`name`,`message`) VALUES('$name','$msg')";
-                $run = $conn->query($sql);
+                if(isset($name) && isset($msg))
+                {
+                    include 'messenger_connection.php';
+                    $sql = "INSERT INTO chat(`name`,`message`) VALUES('$name','$msg')";
+                    $run = $conn->query($sql);
+                }
                 
-                
+                            
             }
-        
-            
-        ?>
+    ?>
         
 </body>
 </html>

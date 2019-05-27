@@ -53,7 +53,7 @@ function sign_out(){
     // deleting the cookie by expiring its validity.
     document.cookie =  "user_name=; expires= Thu, 03 march 2001 00:00:00 UTC; path=/; ";
     
-    document.location.reload(true); 
+    //document.location.reload(true); 
     
 }
 // send message function
